@@ -34,9 +34,12 @@ def index():
         p.line(x,y, line_width=2)
 
         #output_file("scatter.html")
-        show(p) # show the results
-        
-        return render_template('index.html')
+        #show(p) # show the results
+        from bokeh.embed import components 
+
+        script, div = components(p)
+        return render_template('graph.html', script=script, div=div)
+        #return render_template('index.html')
 
 if __name__ == '__main__':
   app.run(port=33507)
