@@ -33,8 +33,8 @@ def index():
         # add both a line and circles on the same plot
         p.line(x,y, line_width=2)
 
-        #output_file("scatter.html")
-        #show(p) # show the results
+        output_file("graph.html")
+        show(p) # show the results
         from bokeh.embed import components 
 
         script, div = components(p)
