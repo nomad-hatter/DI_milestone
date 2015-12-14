@@ -21,8 +21,8 @@ def index():
         
         api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
-        df = pd.read_json(api_url)
-        df = pd.DataFrame(df['dataset']['data'])
+        #df = pd.read_json(api_url)
+        #df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
         #x=pd.to_datetime(pd.Series(df[0]))
@@ -42,7 +42,7 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        return '%s'%(df)
+        return '%s'%(api_url)
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
 
