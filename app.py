@@ -15,9 +15,9 @@ def index():
 
     else:
     from bokeh.io import output_notebook, show
-    from bokeh.plotting import figure
+    #from bokeh.plotting import figure
     import requests, simplejson
-    import pandas as pd
+    #import pandas as pd
 
         app.vars['ticker']=request.form['ticker']
         
