@@ -15,7 +15,7 @@ def index():
     else:
         app.vars['ticker']=request.form['ticker']
         
-        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%app.vars['ticker']
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
         df = pd.read_json(api_url)
         df = pd.DataFrame(df['dataset']['data'])
