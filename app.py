@@ -6,8 +6,13 @@ app = Flask(__name__)
 def main():
   return redirect('/index')
 
-@app.route('/index')
+@app.route('/index',methods=['POST'])
 def index():
+    if request.method == 'POST':
+        app.vars['ticker']=request.form['ticker']
+         f = open('%s.txt'%(app.vars['ticker']),'w')
+         f.write('%s\n'%(app.vars['ticker']))
+         f.close()
   return render_template('index.html')
 
 if __name__ == '__main__':
