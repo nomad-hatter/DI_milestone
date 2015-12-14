@@ -13,6 +13,7 @@ def index():
          f = open('%s.txt'%(app.vars['ticker']),'w')
          f.write('%s\n'%(app.vars['ticker']))
          f.close()
+    else:
   return render_template('index.html')
 
 if __name__ == '__main__':
