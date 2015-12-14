@@ -38,7 +38,7 @@ def index():
         from bokeh.embed import components 
 
         script, div = components(p)
-        return '%s'%app.vars['ticker']
+        return '%s'%(app.vars['ticker'])
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
 
