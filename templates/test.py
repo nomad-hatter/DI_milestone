@@ -4,22 +4,10 @@ import requests, simplejson
 import pandas as pd
 import web
 
-urls=('Index')
-app=web.application(urls,globals())
-render = web.template.render('templates/')
-
-class Index(object):
-    def GET(self):
-        return render.index()
-
-    def POST(self):
-        form = web.input(name="Nobody", greet="Hello")
-        greeting = "%s, %s" % (form.greet, form.name)
-        return render.index(greeting = greeting)
-
     
-r=requests.get('https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=tX-ANP6Rh24Q81bFsYH5')
-df = pd.read_json('https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=tX-ANP6Rh24Q81bFsYH5')
+stock='FB'
+r=requests.get('https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5',stock)
+df = pd.read_json('https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5')
 df = pd.DataFrame(df['dataset']['data'])
 
 # set up some data
