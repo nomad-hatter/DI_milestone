@@ -14,10 +14,10 @@ def index():
           return render_template('index.html')
 
     else:
-    #from bokeh.io import output_notebook, show
-    #from bokeh.plotting import figure
-    #import requests, simplejson
-    #import pandas as pd
+    from bokeh.io import output_notebook, show
+    from bokeh.plotting import figure
+    import requests, simplejson
+    import pandas as pd
 
         app.vars['ticker']=request.form['ticker']
         
