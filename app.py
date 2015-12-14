@@ -1,11 +1,12 @@
-from flask import *
-import pandas as pd
+from flask import *Flask, render_template, request, redirect
+    #from bokeh.io import output_notebook, show
+    #from bokeh.plotting import figure
+    #import requests
+    #import pandas as pd
 
-from bokeh.embed import components
 from bokeh.plotting import figure
-from bokeh.resources import INLINE
-from bokeh.util.string import encode_utf8
-
+from bokeh.resources import CDN
+from bokeh.embed import file_html, components
 
 app = Flask(__name__)
 app.vars={}
@@ -24,7 +25,7 @@ def index():
     
         app.vars['ticker']=request.form['ticker']
         
-        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
+        #api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
         #df = pd.read_json(api_url)
         #df = pd.DataFrame(df['dataset']['data'])
