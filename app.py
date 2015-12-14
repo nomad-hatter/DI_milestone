@@ -1,8 +1,4 @@
 from flask import Flask, render_template, request, redirect
-from bokeh.io import output_notebook, show
-from bokeh.plotting import figure
-import requests, simplejson
-import pandas as pd
 
 app = Flask(__name__)
 app.vars={}
@@ -16,7 +12,13 @@ def index():
     
     if request.method == 'GET':
           return render_template('index.html')
+
     else:
+    from bokeh.io import output_notebook, show
+    from bokeh.plotting import figure
+    import requests, simplejson
+    import pandas as pd
+
         app.vars['ticker']=request.form['ticker']
         
         api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
@@ -42,7 +44,7 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        return '%s'%(api_url)
+        return '%s'%(app.vars['ticker'])
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
 
