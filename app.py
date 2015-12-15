@@ -45,7 +45,7 @@ def graph():
         y = df[1].tolist()
           
         # create a new plot with figure
-        p = figure(plot_width=800, plot_height=800, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
+        p = figure(plot_width=400, plot_height=400, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
 
         p.line(x,y, line_width=2)
 
