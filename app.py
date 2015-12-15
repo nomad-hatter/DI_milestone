@@ -49,12 +49,12 @@ def graph():
 
         p.line(x,y, line_width=2)
 
-        resources = RESOURCES.render(js_raw=INLINE.js_raw,css_raw=INLINE.css_raw,js_files=INLINE.js_files,css_files=INLINE.css_files,)
+        #resources = RESOURCES.render(js_raw=INLINE.js_raw,css_raw=INLINE.css_raw,js_files=INLINE.js_files,css_files=INLINE.css_files,)
 
         script, div = components(p)
 
-        return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        #return '%s'%(df)
+        #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
+        return '%s'%(y)
         #return 'redirect works with time and api'
     
 if __name__ == '__main__':
