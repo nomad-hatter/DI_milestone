@@ -4,9 +4,9 @@ from flask import *Flask, render_template, request, redirect
     #import requests
     #import pandas as pd
 
-from bokeh.plotting import figure
-from bokeh.resources import CDN
-from bokeh.embed import file_html, components
+#from bokeh.plotting import figure
+#from bokeh.resources import CDN
+#from bokeh.embed import file_html, components
 
 app = Flask(__name__)
 app.vars={}
