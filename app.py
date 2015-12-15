@@ -16,40 +16,45 @@ def main():
 @app.route('/index',methods=['GET','POST'])
 def index():
     
+
+    
+    
     if request.method == 'GET':
           return render_template('index.html')
 
     else:
     
         app.vars['ticker']=request.form['ticker']
+        return redirct('/graph')
+
+@app.route('/graph',methods=['GET','POST'])
+def plot():
+    
+        crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+        start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
+
         
-        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
 
         df = pd.read_json(%s)%(api_url)
-        #df = pd.DataFrame(df['dataset']['data'])
+        df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
-        #x=pd.to_datetime(pd.Series(df[0]))
-        #x=x.tolist()
-        #y = df[1].tolist()
-        
-        #output_notebook()
-        
+        x=pd.to_datetime(pd.Series(df[0]))
+        x=x.tolist()
+        y = df[1].tolist()
+          
         # create a new plot with figure
-        #p = figure(plot_width=800, plot_height=800, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
+        p = figure(plot_width=800, plot_height=800, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
 
-        # add both a line and circles on the same plot
-        #p.line(x,y, line_width=2)
+        p.line(x,y, line_width=2)
 
-        #output_file("graph.html")
-        #show(p) # show the results
-        #from bokeh.embed import components 
+        #resources = RESOURCES.render(js_raw=INLINE.js_raw,css_raw=INLINE.css_raw,js_files=INLINE.js_files,css_files=INLINE.css_files,)
 
-        #script, div = components(p)
-        return '%s'%(app.vars['ticker'])
-        #return '%s'%y
-        #return render_template('graph.html', script=script, div=div)
-        #return render_template('index.html')
+        script, div = components(p)
+
+        return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div)   
+    
 
 if __name__ == '__main__':
   app.run(port=33507)
