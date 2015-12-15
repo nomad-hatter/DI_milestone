@@ -40,21 +40,21 @@ def graph():
         df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
-        #x=pd.to_datetime(pd.Series(df[0]))
-        #x=x.tolist()
-        #y = df[1].tolist()
+        x=pd.to_datetime(pd.Series(df[0]))
+        x=x.tolist()
+        y = df[1].tolist()
           
         # create a new plot with figure
-        #p = figure(plot_width=800, plot_height=800, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
+        p = figure(plot_width=800, plot_height=800, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
 
-        #p.line(x,y, line_width=2)
+        p.line(x,y, line_width=2)
 
-        #resources = RESOURCES.render(js_raw=INLINE.js_raw,css_raw=INLINE.css_raw,js_files=INLINE.js_files,css_files=INLINE.css_files,)
+        resources = RESOURCES.render(js_raw=INLINE.js_raw,css_raw=INLINE.css_raw,js_files=INLINE.js_files,css_files=INLINE.css_files,)
 
-        #script, div = components(p)
+        script, div = components(p)
 
-        #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(df)
+        return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
+        #return '%s'%(df)
         #return 'redirect works with time and api'
     
 if __name__ == '__main__':
