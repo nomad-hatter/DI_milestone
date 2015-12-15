@@ -22,8 +22,9 @@ def index():
 
     else:
     
-        app.vars['ticker']=request.form['ticker']
-        return redirct('/graph')
+        #app.vars['ticker']=request.form['ticker']
+        ticker=request.form['ticker']
+        return redirct('/graph', ticker=ticker)
 
 @app.route('/graph',methods=['GET','POST'])
 def graph():
@@ -33,7 +34,7 @@ def graph():
 
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+app.vars['ticker'] + '.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
-        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/%s'%(app.vars['ticker'])
+        #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/%s'%(ticker)
         #app.vars['api_url']=api_url
         #df = pd.read_json(api_url)
         #df = pd.DataFrame(df['dataset']['data'])
@@ -53,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(app.vars['ticker'])
+        return '%s'%(ticker)
         #return 'redirect works with time and api %s'%(api_url)
 
 if __name__ == '__main__':
