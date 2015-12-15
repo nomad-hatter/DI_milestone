@@ -29,7 +29,7 @@ def index():
 
 @app.route('/graph',methods=['GET','POST'])
 def graph():
-        symbol=session['symbol']
+        symbol=app.vars['ticker']
         
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
