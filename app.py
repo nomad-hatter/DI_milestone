@@ -54,8 +54,8 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(api_vars['ticker'])
-        #return 'redirect works with time and api %s'%(api_url)
+        #return '%s'%(api_vars['ticker'])
+        return 'redirect works with time and api %s'%(api_vars['ticker'])
 
 if __name__ == '__main__':
   app.run(port=33507)
