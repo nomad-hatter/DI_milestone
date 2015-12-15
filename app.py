@@ -15,10 +15,7 @@ def main():
 
 @app.route('/index',methods=['GET','POST'])
 def index():
-    
-
-    
-    
+        
     if request.method == 'GET':
           return render_template('index.html')
 
@@ -28,7 +25,7 @@ def index():
         return redirct('/graph')
 
 @app.route('/graph',methods=['GET','POST'])
-def plot():
+def graph():
     
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
