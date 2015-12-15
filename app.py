@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request, redirect
-    #from bokeh.io import output_notebook, show
-    #from bokeh.plotting import figure
-    #import requests
+from bokeh.io import output_notebook, show
 from pandas import DataFrame
-
-#from bokeh.plotting import figure
-#from bokeh.resources import CDN
-#from bokeh.embed import file_html, components
+from bokeh.plotting import figure
+from bokeh.resources import CDN
+from bokeh.embed import file_html, components
 
 app = Flask(__name__)
 app.vars={}
@@ -25,10 +22,10 @@ def index():
     
         app.vars['ticker']=request.form['ticker']
         
-        #api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
-        #df = pd.read_json(api_url)
-        #df = pd.DataFrame(df['dataset']['data'])
+        df = pandas.read_json(api_url)
+        df = pandas.DataFrame(df['dataset']['data'])
         
         # set up some data
         #x=pd.to_datetime(pd.Series(df[0]))
@@ -48,7 +45,8 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        return '%s'%(app.vars['ticker'])
+        #return '%s'%(app.vars['ticker'])
+        return '%s'%df
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
 
