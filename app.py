@@ -32,7 +32,7 @@ def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
 
-        #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+app.vars['ticker'] + '.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
+        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/FB.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/%s'%(ticker)
         #app.vars['api_url']=api_url
@@ -54,8 +54,8 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        #return '%s'%(api_vars['ticker'])
-        return 'redirect works with time and api'
+        return '%s'%(api_url)
+        #return 'redirect works with time and api'
     
 if __name__ == '__main__':
   app.run(port=33507)
