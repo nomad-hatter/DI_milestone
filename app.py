@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from bokeh.io import output_notebook, show
 from pandas import DataFrame
 from bokeh.plotting import figure
@@ -25,10 +25,10 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         ticker=request.form['ticker']
         #return redirct('/graph')
-        return redirct('/graph',ticker=ticker)
+        return redirct(url_for('.graph',ticker=ticker))
 
-@app.route('/graph/<ticker>',methods=['GET','POST'])
-def graph(ticker):
+@app.route('/graph',methods=['GET','POST'])
+def graph():
     
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
