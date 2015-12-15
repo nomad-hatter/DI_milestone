@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
     #from bokeh.io import output_notebook, show
     #from bokeh.plotting import figure
     #import requests
-    import pandas as pd
+from pandas import DataFrame
 
 #from bokeh.plotting import figure
 #from bokeh.resources import CDN
