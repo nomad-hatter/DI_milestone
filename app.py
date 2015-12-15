@@ -54,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return '%s'%(symbol)
+        return '%s'%(app_vars['ticker'])
     
 if __name__ == '__main__':
     app.run(port=33507)
