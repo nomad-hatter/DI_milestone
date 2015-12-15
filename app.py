@@ -28,11 +28,11 @@ def index():
 @app.route('/graph',methods=['GET','POST'])
 def graph():
     
-        #crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
-        #start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
+        crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+        start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
 
         
-        #api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
 
         #df = pd.read_json(%s)%(api_url)
         #df = pd.DataFrame(df['dataset']['data'])
@@ -52,7 +52,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return 'redirect works'
+        return '%s'%(api_url)
     
 
 if __name__ == '__main__':
