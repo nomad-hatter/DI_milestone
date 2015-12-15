@@ -22,9 +22,9 @@ def index():
 
     else:
     
-        #app.vars['ticker']=request.form['ticker']
-        ticker=request.form['ticker']
-        return redirct('/graph', ticker=ticker)
+        app.vars['ticker']=request.form['ticker']
+        #ticker=request.form['ticker']
+        return redirct('/graph')
 
 @app.route('/graph',methods=['GET','POST'])
 def graph():
@@ -54,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(ticker)
+        return '%s'%(api_vars['ticker'])
         #return 'redirect works with time and api %s'%(api_url)
 
 if __name__ == '__main__':
