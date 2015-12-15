@@ -5,7 +5,7 @@ from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.embed import file_html, components
 import pandas as pd
-#import time
+import time
 
 app = Flask(__name__)
 app.vars={}
