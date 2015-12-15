@@ -4,6 +4,7 @@ from pandas import DataFrame
 from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.embed import file_html, components
+import pandas as pd
 
 app = Flask(__name__)
 app.vars={}
@@ -22,13 +23,13 @@ def index():
     
         app.vars['ticker']=request.form['ticker']
         
-        app.vars['api_url']='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
-        #df = pandas.read_json(api_url)
-        #df = pandas.DataFrame(df['dataset']['data'])
+        df = pd.read_json(%s)%(api_url)
+        #df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
-        #x=pandas.to_datetime(pd.Series(df[0]))
+        #x=pd.to_datetime(pd.Series(df[0]))
         #x=x.tolist()
         #y = df[1].tolist()
         
