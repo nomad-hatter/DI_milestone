@@ -25,12 +25,12 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         #ticker=request.form['ticker']
         #return redirct('/graph')
-        return redirct('/graph',ticker=request.form['ticker'])
+        return redirct(url_for('graph')))
 
 @app.route('/graph',methods=['GET','POST'])
 def graph():
    
-        ticker=ticker    
+        #ticker=ticker    
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
@@ -55,8 +55,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return '%s'%(ticker)
+        return 'hello world'
     
 if __name__ == '__main__':
-  #app.run(port=33507)
-    app.run(debug=True)
+    app.run(port=33507)
