@@ -23,7 +23,7 @@ def index():
     else:
     
         #app.vars['ticker']=request.form['ticker']
-        #ticker=request.form['ticker']
+        ticker=request.form['ticker']
         #return redirct('/graph')
         return redirct(url_for('graph'))
 
