@@ -36,8 +36,8 @@ def graph():
     
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/%s'%(ticker)
         #app.vars['api_url']=api_url
-        #df = pd.read_json(api_url)
-        #df = pd.DataFrame(df['dataset']['data'])
+        df = pd.read_json(api_url)
+        df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
         #x=pd.to_datetime(pd.Series(df[0]))
@@ -54,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(api_url)
+        return '%s'%(df)
         #return 'redirect works with time and api'
     
 if __name__ == '__main__':
