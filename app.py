@@ -23,7 +23,7 @@ def index():
 
     else:
     
-        app.vars['ticker']=request.form['ticker']
+        #app.vars['ticker']=request.form['ticker']
         
         #api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
@@ -48,10 +48,10 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        return '%s'%(app.vars['ticker'])
+        #return '%s'%(app.vars['ticker'])
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
-
+        return 'not a get'
 if __name__ == '__main__':
   app.run(port=33507)
 
