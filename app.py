@@ -31,8 +31,9 @@ def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
 
+        api_url = 'hello'
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+app.vars['ticker']
-        # + '.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5'
+        # + '.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l
 
         #app.vars['api_url']=api_url
         #df = pd.read_json(api_url)
@@ -54,7 +55,7 @@ def graph():
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
         #return '%s'%(app.vars['api_url'])
-        return 'redirect works with time and api %s'%(app_vars['ticker'])
+        return 'redirect works with time and api %s'%(api_url)
 
 if __name__ == '__main__':
   app.run(port=33507)
