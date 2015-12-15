@@ -22,7 +22,7 @@ def index():
     
         app.vars['ticker']=request.form['ticker']
         
-        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
+        app.vars['api_url']='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'])
 
         #df = pandas.read_json(api_url)
         #df = pandas.DataFrame(df['dataset']['data'])
@@ -45,7 +45,7 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        return '%s'%(app.vars['ticker'])
+        return '%s'%(app.vars['api_url'])
         #return '%s'%y
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
