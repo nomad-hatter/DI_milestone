@@ -28,9 +28,9 @@ def index():
         df = pandas.DataFrame(df['dataset']['data'])
         
         # set up some data
-        #x=pd.to_datetime(pd.Series(df[0]))
-        #x=x.tolist()
-        #y = df[1].tolist()
+        x=pandas.to_datetime(pd.Series(df[0]))
+        x=x.tolist()
+        y = df[1].tolist()
         
         #output_notebook()
         
@@ -45,8 +45,8 @@ def index():
         #from bokeh.embed import components 
 
         #script, div = components(p)
-        #return '%s'%(app.vars['ticker'])
-        return '%s'%df
+        return '%s'%(app.vars['ticker'])
+        #return '%s'%y
         #return render_template('graph.html', script=script, div=div)
         #return render_template('index.html')
 
