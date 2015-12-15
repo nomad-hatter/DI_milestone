@@ -32,7 +32,7 @@ def graph():
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
 
         
-        #api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
+        api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
         #app.vars['api_url']=api_url
         #df = pd.read_json(api_url)
         #df = pd.DataFrame(df['dataset']['data'])
