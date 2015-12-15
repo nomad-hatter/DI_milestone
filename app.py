@@ -53,8 +53,8 @@ def graph():
 
         script, div = components(p)
 
-        #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(y)
+        return render_template('graph.html',script=script, div=div) 
+        #return '%s'%(y)
         #return 'redirect works with time and api'
     
 if __name__ == '__main__':
