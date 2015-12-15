@@ -33,7 +33,7 @@ def graph():
 
         
         api_url='https://www.quandl.com/api/v3/datasets/WIKI/%s.json?start_date=%s&end_date=%s?api_key=tX-ANP6Rh24Q81bFsYH5'%(app.vars['ticker'],start_date,crnt_date)
-
+        app.vars['api_url']=api_url
         #df = pd.read_json(%s)%(api_url)
         #df = pd.DataFrame(df['dataset']['data'])
         
@@ -52,7 +52,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',ticker = app.vars['ticker'],script=script, div=div) 
-        return '%s'%(api_url)
+        return '%s'%(app.vars['api_url'])
     
 
 if __name__ == '__main__':
