@@ -21,9 +21,9 @@ def index():
           return render_template('index.html')
 
     else:
-    
-        app.vars['ticker']=request.form['ticker']
-        #symbol=request.form['ticker']
+        global symbol
+        #app.vars['ticker']=request.form['ticker']
+        symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
         return redirect('/graph')
 
@@ -54,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return '%s'%(app.vars['ticker'])
+        return '%s'%(symbol)
     
 if __name__ == '__main__':
     app.run(port=33507)
