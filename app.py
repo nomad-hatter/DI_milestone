@@ -25,8 +25,8 @@ def index():
         return redirect(url_for('graph',symbol='test'))
 
     
-@app.route('/graph',methods=['GET','POST'])
-def graph():
+@app.route('/graph/<symbol>',methods=['GET','POST'])
+def graph(symbol):
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
@@ -52,7 +52,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return 'Here %s'%(request.args.get('symbol'))
+        return 'Here %s'%(symbol=symbol)
     
 if __name__ == '__main__':
     app.run(port=33507)
