@@ -40,7 +40,7 @@ def graph():
             df = pd.read_json(api_url)
         except Exception as e:
             flash('Invalid ticker symbol')
-            return render_template('index.html')
+            return redirect('/index')
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
