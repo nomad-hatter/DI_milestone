@@ -24,7 +24,7 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
-        return redirect('/graph?symbol='+symbol)
+        return redirect(url_for('/graph',symbol=symbol)
 
 
 @app.route('/graph',methods=['GET','POST'])
@@ -32,7 +32,7 @@ def graph(symbol):
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
-        #symbol=request.args.get
+        symbol=request.args.get('symbol')
         #symbol=request.args['symbol']
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+ticker+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
