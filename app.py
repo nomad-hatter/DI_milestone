@@ -24,7 +24,7 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
-        return 'First %s'%(symbol)
+        return 'First'
         #return redirect(url_for('graph',symbol=request.form['ticker']))
 
 @app.route('/graph',methods=['GET','POST'])
