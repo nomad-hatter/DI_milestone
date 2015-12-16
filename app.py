@@ -49,7 +49,7 @@ def graph():
     y = df[1].tolist()
 
     # create a new plot with figure
-    p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
+    p = figure(plot_width=800, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
 
     p.line(x,y, line_width=2)
 
