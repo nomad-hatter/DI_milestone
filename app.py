@@ -22,7 +22,7 @@ def index():
     else:
         #symbol=request.form['ticker']
         symbol = 'test'
-        return redirect(url_for('graph',symbol='test'))
+        return redirect(url_for('graph',symbol=symbol))
 
     
 @app.route('/graph/<symbol>',methods=['GET','POST'])
