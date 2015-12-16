@@ -38,8 +38,7 @@ def graph():
 
     
         df = pd.read_json(api_url)
-        #plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
-        plotTitle=api_url
+        plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
@@ -54,7 +53,7 @@ def graph():
 
         script, div = components(p)
 
-        return render_template('graph.html',script=script, div=div, symbol=symbol.upper()) 
+        return render_template('graph.html',script=script, div=div, symbol=api_url) 
         
 if __name__ == '__main__':
     app.run(port=33507)
