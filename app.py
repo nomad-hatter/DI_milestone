@@ -22,12 +22,13 @@ def index():
     else:
     
         #app.vars['ticker']=request.form['ticker']
-        #symbol=request.form['ticker']
+        symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
-        return redirect(render_template('graph',symbol=request.form['ticker']))
+        return 'First %s'%(symbol)
+        #return redirect(url_for('graph',symbol=request.form['ticker']))
 
 @app.route('/graph',methods=['GET','POST'])
-def graph():
+def graph(symbol):
         
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
