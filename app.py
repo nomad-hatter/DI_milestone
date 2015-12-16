@@ -16,7 +16,6 @@ def main():
 
 @app.route('/index',methods=['GET','POST'])
 def index():
-    flash('test')
 
     if request.method == 'GET':
           return render_template('index.html')
@@ -40,9 +39,9 @@ def graph():
 
         try:
             df = pd.read_json(api_url)
-        except Exception:
-            flash('test')
-            return redirect(url_for('index'))
+        except Exception as e:
+            flash('Invalid ticker symbol')
+            return render_template("index.html")
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])

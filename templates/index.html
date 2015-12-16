@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div class=page>
-        <div class=metanav>
             <h4>Please enter a stock symbol:</h4>
             <form id='input_form' method='post' action="{{url_for('graph')}}"> 
                 <p>
@@ -17,7 +15,5 @@
                     <input type="submit" value="Submit">
                 </p>
             </form>
-        </div>
-    </div>
 {% endblock %}
 
