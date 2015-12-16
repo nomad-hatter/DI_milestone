@@ -25,11 +25,11 @@ def index():
         app.vars['ticker']=request.form['ticker']
         ticker=request.form['ticker']
         session['symbol']=request.form['ticker']
-        return redirect(url_for('graph'), symbol=ticker)
+        return redirect(url_for('graph', symbol=ticker))
 
 @app.route('/graph',methods=['GET','POST'])
 def graph():
-        symbol=app.vars['ticker']
+        symbol=
         
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
