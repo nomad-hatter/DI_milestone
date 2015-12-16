@@ -2,7 +2,6 @@
 
 {% block body %}
 <body>
-    <div class="container">
         <h4>Please enter a stock symbol:</h4>
         <form id='input_form' method='post' action="{{url_for('graph')}}"> 
             <p>
@@ -17,7 +16,6 @@
                 <input type="submit" value="Submit">
             </p>
         </form>
-    </div>
 </body>
 {% endblock %}
 
