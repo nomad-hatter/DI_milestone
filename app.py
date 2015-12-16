@@ -38,8 +38,8 @@ def graph():
 
     
         df = pd.read_json(api_url)
-#        plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
-        plotTitle=symbol+' '+option
+        #plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
+        plotTitle=api_url
         df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
