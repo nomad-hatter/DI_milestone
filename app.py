@@ -41,7 +41,7 @@ def graph():
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        y = df[1].tolist()
+        y = df[option].tolist()
 
         plotTitle=symbol+' data' + option
         #if option == 1
@@ -61,7 +61,6 @@ def graph():
         script, div = components(p)
 
         return render_template('graph.html',script=script, div=div, symbol=symbol) 
-        #return 'Here %s'%()
-    
+        
 if __name__ == '__main__':
     app.run(port=33507)
