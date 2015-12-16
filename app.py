@@ -38,8 +38,8 @@ def graph():
 
         try:
             df = pd.read_json(api_url)
-        except Exception as e:
-            return e
+        except:
+            return render_template('index.html')
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
