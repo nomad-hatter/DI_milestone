@@ -8,7 +8,7 @@ import pandas as pd
 import time
 
 app = Flask(__name__)
-app.vars={}
+symbol=''
 
 @app.route('/')
 def main():
@@ -23,13 +23,12 @@ def index():
     else:
     
         app.vars['ticker']=request.form['ticker']
-        ticker=request.form['ticker']
-        session['symbol']=request.form['ticker']
-        return redirect(url_for('graph', symbol=request.form['ticker']))
+        symbol=request.form['ticker']
+        #session['symbol']=request.form['ticker']
+        return redirect(url_for('graph'))
 
-@app.route('/graph/<symbol>',methods=['GET','POST'])
-def graph(symbol):
-        test=symbol
+@app.route('/graph',methods=['GET','POST'])
+def graph():
         
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
@@ -56,7 +55,7 @@ def graph(symbol):
 
         #return render_template('graph.html',script=script, div=div) 
         #return '%s'%(app_vars['ticker'])
-        return '%s'%(test)
+        return '%s'%(symbol)
     
 if __name__ == '__main__':
     app.run(port=33507)
