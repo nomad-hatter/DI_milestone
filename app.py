@@ -16,6 +16,8 @@ def main():
 
 @app.route('/index',methods=['GET','POST'])
 def index():
+    flash('test')
+
     if request.method == 'GET':
           return render_template('index.html')
 
