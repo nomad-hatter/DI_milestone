@@ -20,7 +20,6 @@ def index():
           return render_template('index.html')
 
     else:
-
         return redirect(url_for('graph'))
 
     
@@ -40,7 +39,7 @@ def graph():
     
         df = pd.read_json(api_url)
 #        plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
-plotTitle=symbol+' '+option
+        plotTitle=symbol+' '+option
         df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
