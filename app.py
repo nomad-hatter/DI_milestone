@@ -42,7 +42,7 @@ def graph():
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        y = df[option].tolist()
+        y = df[1].tolist()
         
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
