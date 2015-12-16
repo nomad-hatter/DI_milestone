@@ -34,18 +34,18 @@ def graph():
         option=request.form['option']
         symbol=symbol.upper()
         
-        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
+        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + 'column_index='+ option +'?api_key=tX-ANP6Rh24Q81bFsYH5l'
+
     
         df = pd.read_json(api_url)
+        plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
         
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        df=df[option]
-        y = df.tolist()
+        y = df[1].tolist()
         
-        plotTitle=symbol+' Data'
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
 
