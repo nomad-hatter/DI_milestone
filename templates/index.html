@@ -1,19 +1,23 @@
 {% extends "layout.html" %}
 
 {% block body %}
-            <h4>Please enter a stock symbol:</h4>
-            <form id='input_form' method='post' action="{{url_for('graph')}}"> 
-                <p>
-                    Stock symbol: <input type='text' name='ticker' />
-                </p>
-                
-                <p>
-                    <input type="radio" name='option' value='1' checked>Opening Price<br>
-                    <input type="radio" name='option' value='8'>Adjusted Opening Price<br>
-                    <input type="radio" name='option' value='4'>Closing Price<br>
-                    <input type="radio" name='option' value='11'>Adjusted Closing Price<br>
-                    <input type="submit" value="Submit">
-                </p>
-            </form>
+<body>
+    <div class=container>
+        <h4>Please enter a stock symbol:</h4>
+        <form id='input_form' method='post' action="{{url_for('graph')}}"> 
+            <p>
+                Stock symbol: <input type='text' name='ticker' />
+            </p>
+
+            <p>
+                <input type="radio" name='option' value='1' checked>Opening Price<br>
+                <input type="radio" name='option' value='8'>Adjusted Opening Price<br>
+                <input type="radio" name='option' value='4'>Closing Price<br>
+                <input type="radio" name='option' value='11'>Adjusted Closing Price<br>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+    </div>
+</body>
 {% endblock %}
 

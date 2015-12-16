@@ -36,14 +36,14 @@ def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*28))
         
-        
         symbol=request.form['ticker']
         option=request.form['option']
         
         symbol=symbol.upper()
         
         api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '&column_index='+ option +'?api_key=tX-ANP6Rh24Q81bFsYH5l'
-        
+                    df = pd.read_json(api_url)
+
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
         
