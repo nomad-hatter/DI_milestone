@@ -41,17 +41,20 @@ def graph():
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        y = df[option].tolist()
 
         plotTitle=symbol+' data' + option
-        #if option == 1
-        #    title=symbol+' Opening Price'
-        #elif option == 4
-        #    title=symbol+' Closing Price'
-        #elif option == 8
-        #    title=symbol+' Adjusted Opening Price'
-        #else
-        #    title=symbol+' Adjusted Closing Price'
+        if option == 1
+            y = df[1].tolist()
+            plotTitle=symbol+' Opening Price'
+        elif option == 4
+            y = df[4].tolist()
+            plotTitle=symbol+' Closing Price'
+        elif option == 8
+            y = df[8].tolist()
+            plotTitle=symbol+' Adjusted Opening Price'
+        else
+            y = df[11].tolist()
+            plotTitle=symbol+' Adjusted Closing Price'
 
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
