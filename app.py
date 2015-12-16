@@ -34,7 +34,7 @@ def graph():
         
         symbol=symbol.upper()
         
-        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + 'column_index='+ option +'?api_key=tX-ANP6Rh24Q81bFsYH5l'
+        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '&column_index='+ option +'?api_key=tX-ANP6Rh24Q81bFsYH5l'
 
     
         df = pd.read_json(api_url)
@@ -53,7 +53,7 @@ def graph():
 
         script, div = components(p)
 
-        return render_template('graph.html',script=script, div=div, symbol=api_url) 
+        return render_template('graph.html',script=script, div=div, symbol=symbol) 
         
 if __name__ == '__main__':
     app.run(port=33507)
