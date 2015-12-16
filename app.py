@@ -20,12 +20,13 @@ def index():
           return render_template('index.html')
 
     else:
-        symbol=request.form['ticker']
+        #symbol=request.form['ticker']
+        symbol = 'test'
         return redirect(url_for('graph',symbol=symbol))
 
     
 @app.route('/graph',methods=['GET','POST'])
-def graph(symbol):
+def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
