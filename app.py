@@ -28,7 +28,7 @@ def index():
 @app.route('/graph',methods=['GET','POST'])
 def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
-        start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
+        start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*28))
         
         
         symbol=request.form['ticker']
@@ -43,13 +43,13 @@ def graph():
         y = df[1].tolist()
           
         # create a new plot with figure
-        p = figure(plot_width=400, plot_height=400, x_axis_type='datetime',title='Ticker Data',x_axis_label='date', y_axis_label='price')
+        p = figure(plot_width=600, plot_height=600, x_axis_type='datetime',title=symbol,x_axis_label='Date', y_axis_label='Price')
 
         p.line(x,y, line_width=2)
 
         script, div = components(p)
 
-        return render_template('graph.html',script=script, div=div) 
+        return render_template('graph.html',script=script, div=div, symbol=symbol) 
         #return 'Here %s'%()
     
 if __name__ == '__main__':
