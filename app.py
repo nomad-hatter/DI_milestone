@@ -30,8 +30,8 @@ def graph():
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
-        #symbol=request.args.get('symbol')
-        symbol=request.args['symbol']
+        
+        #symbol=request.args['symbol']
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+ticker+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
         #df = pd.read_json(api_url)
@@ -52,7 +52,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return 'Here %s'%(symbol)
+        return 'Here %s'%(request.args.get('symbol'))
     
 if __name__ == '__main__':
     app.run(port=33507)
