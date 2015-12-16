@@ -39,6 +39,7 @@ def graph():
         try:
             df = pd.read_json(api_url)
         except:
+            flash('Invalid ticker symbol')
             return render_template('index.html')
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
