@@ -42,7 +42,8 @@ def graph():
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
         y = df[option].tolist()
-        title = symbol+' data'  
+
+        plotTitle=symbol+' data'
         #if option == 1
         #    title=symbol+' Opening Price'
         #elif option == 4
@@ -53,7 +54,7 @@ def graph():
         #    title=symbol+' Adjusted Closing Price'
 
         # create a new plot with figure
-        p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=title,x_axis_label='Date', y_axis_label='Price')
+        p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
 
         p.line(x,y, line_width=2)
 
