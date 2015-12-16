@@ -21,6 +21,13 @@ def index():
           return render_template('index.html')
 
     else:
+        symbol=request.form['ticker']
+        api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?api_key=tX-ANP6Rh24Q81bFsYH5l'
+        try:
+            df = pd.read_json(api_url)
+        except Exception as e:
+            flash('Invalid ticker symbol')
+            return render_template("index.html")
         return redirect(url_for('graph'))
 
     
@@ -36,12 +43,6 @@ def graph():
         symbol=symbol.upper()
         
         api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '&column_index='+ option +'?api_key=tX-ANP6Rh24Q81bFsYH5l'
-
-        try:
-            df = pd.read_json(api_url)
-        except Exception as e:
-            flash('Invalid ticker symbol')
-            return render_template("index.html")
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
         df = pd.DataFrame(df['dataset']['data'])
