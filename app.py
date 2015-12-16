@@ -21,7 +21,7 @@ def index():
         return render_template('index.html')
 
     else:
-        symbol=request.form['ticker']
+        #symbol=request.form['ticker']
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?api_key=tX-ANP6Rh24Q81bFsYH5l'
         #try:
         #df = pd.read_json(api_url)
