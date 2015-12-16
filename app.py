@@ -8,7 +8,7 @@ import pandas as pd
 import time
 
 app = Flask(__name__)
-symbol=''
+symbol='First'
 
 @app.route('/')
 def main():
@@ -54,7 +54,6 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        #return '%s'%(app_vars['ticker'])
         return '%s'%(symbol)
     
 if __name__ == '__main__':
