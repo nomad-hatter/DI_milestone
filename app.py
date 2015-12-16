@@ -21,13 +21,9 @@ def index():
 
     else:
         symbol=request.form['ticker']
-        return redirect(url_for('random',symbol=symbol))
+        return redirect(url_for('graph',symbol=symbol))
 
     
-@app.route('/<symbol>')
-def random(symbol):
-    return '%s'%(symbol)
-
 @app.route('/graph',methods=['GET','POST'])
 def graph(symbol):
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
