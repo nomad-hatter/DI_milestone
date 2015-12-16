@@ -44,6 +44,7 @@ def graph():
         x=x.tolist()
         y = df[1].tolist()
         
+        plotTitle=symbol+' Data'
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
 
