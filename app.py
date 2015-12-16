@@ -28,7 +28,7 @@ def index():
         return redirect(url_for('graph', symbol=request.form['ticker']))
 
 @app.route('/graph/<symbol>',methods=['GET','POST'])
-def graph(symbol=None):
+def graph(symbol):
         test=symbol
         
         crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
