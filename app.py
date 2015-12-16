@@ -38,7 +38,7 @@ def graph():
 
         try:
             df = pd.read_json(api_url)
-        except:
+        except Exception:
             flash('test')
             return redirect(url_for('index'))
         
