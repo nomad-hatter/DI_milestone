@@ -24,8 +24,7 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
-        return 'First'
-        #return redirect(url_for('graph',symbol=request.form['ticker']))
+        return redirect('/graph')
 
 @app.route('/graph',methods=['GET','POST'])
 def graph(symbol):
@@ -54,7 +53,7 @@ def graph(symbol):
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return 'test %s'%(symbol)
+        return 'First'
     
 if __name__ == '__main__':
     app.run(port=33507)
