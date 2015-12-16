@@ -8,6 +8,7 @@ import pandas as pd
 import time
 
 app = Flask(__name__)
+app.var={}
 
 @app.route('/')
 def main():
@@ -21,8 +22,8 @@ def index():
 
     else:
     
-        #app.vars['ticker']=request.form['ticker']
-        symbol=request.form['ticker']
+        app.vars['ticker']=request.form['ticker']
+        #symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
         return redirect('/graph')
 
@@ -53,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return 'First'
+        return '%s'%(app.vars['ticker'])
     
 if __name__ == '__main__':
     app.run(port=33507)
