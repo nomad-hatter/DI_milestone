@@ -43,16 +43,16 @@ def graph():
         x=x.tolist()
 
         plotTitle=symbol+' data' + option
-        if option == 1
+        if option == 1:
             y = df[1].tolist()
             plotTitle=symbol+' Opening Price'
-        elif option == 4
+        elif option == 4:
             y = df[4].tolist()
             plotTitle=symbol+' Closing Price'
-        elif option == 8
+        elif option == 8:
             y = df[8].tolist()
             plotTitle=symbol+' Adjusted Opening Price'
-        else
+        else:
             y = df[11].tolist()
             plotTitle=symbol+' Adjusted Closing Price'
 
