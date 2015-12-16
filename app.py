@@ -41,9 +41,9 @@ def graph():
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        y = df[option].tolist()
+        y = df[1].tolist()
 
-        plotTitle=symbol+' data'
+        plotTitle=symbol+' data' + option
         #if option == 1
         #    title=symbol+' Opening Price'
         #elif option == 4
