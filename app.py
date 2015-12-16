@@ -27,7 +27,7 @@ def index():
     
 @app.route('/<symbol>')
 def random(symbol):
-    return symbol
+    return '%s'%(symbol)
 
 @app.route('/graph',methods=['GET','POST'])
 def graph(symbol):
