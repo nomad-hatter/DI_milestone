@@ -39,6 +39,7 @@ def graph():
         try:
             df = pd.read_json(api_url)
         except:
+            flash('test')
             return redirect(url_for('index'))
         
         plotTitle=symbol+' '+df['dataset']['column_names'][1]+' Data'
