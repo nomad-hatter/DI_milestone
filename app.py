@@ -31,8 +31,8 @@ def graph():
         
         
         symbol=request.form['ticker']
-        symbol.upper()
         option=request.form['option']
+        symbol.upper()
         
         api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
@@ -44,16 +44,17 @@ def graph():
         x=x.tolist()
 
         if option == 1:
+            y = df[1].tolist()
             plotTitle=symbol+' Opening Price'
         elif option == 4:
+            y = df[4].tolist()
             plotTitle=symbol+' Closing Price'
         elif option == 8:
+            y = df[8].tolist()
             plotTitle=symbol+' Adjusted Opening Price'
         else:
+            y = df[11].tolist()
             plotTitle=symbol+' Adjusted Closing Price'
-            
-            
-        y = df[option].tolist()
 
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=plotTitle,x_axis_label='Date', y_axis_label='Price')
@@ -62,7 +63,7 @@ def graph():
 
         script, div = components(p)
 
-        return render_template('graph.html',script=script, div=div, symbol=symbol) 
+        return render_template('graph.html',script=script, div=div, symbol=symbol.upper()) 
         
 if __name__ == '__main__':
     app.run(port=33507)
