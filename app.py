@@ -38,7 +38,7 @@ def graph():
 
         try:
             df = pd.read_json(api_url)
-        except:
+        except Exception as e:
             flash('Invalid ticker symbol')
             return render_template('index.html')
         
