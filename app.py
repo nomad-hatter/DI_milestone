@@ -20,8 +20,7 @@ def index():
           return render_template('index.html')
 
     else:
-        #symbol=request.form['ticker']
-        #symbol = 'test'
+
         return redirect(url_for('graph'))
 
     
@@ -43,15 +42,15 @@ def graph():
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
         y = df[option].tolist()
-          
-        if option == 1
-            title=symbol+' Opening Price'
-        elif option == 4
-            title=symbol+' Closing Price'
-        elif option == 8
-            title=symbol+' Adjusted Opening Price'
-        else
-            title=symbol+' Adjusted Closing Price'
+        title = symbol+' data'  
+        #if option == 1
+        #    title=symbol+' Opening Price'
+        #elif option == 4
+        #    title=symbol+' Closing Price'
+        #elif option == 8
+        #    title=symbol+' Adjusted Opening Price'
+        #else
+        #    title=symbol+' Adjusted Closing Price'
 
         # create a new plot with figure
         p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=title,x_axis_label='Date', y_axis_label='Price')
