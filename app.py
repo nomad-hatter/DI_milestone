@@ -25,13 +25,13 @@ def index():
         #app.vars['ticker']=request.form['ticker']
         symbol=request.form['ticker']
         #session['symbol']=request.form['ticker']
-        return redirect('/graph')
-
-@app.route('/graph',methods=['GET','POST'])
-def graph():
-        global symbol
-        crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
-        start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
+        #return redirect('/graph')
+        return '%s'%(request.form['ticker'])
+#@app.route('/graph',methods=['GET','POST'])
+#def graph():
+ #       global symbol
+  #      crnt_date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+   #     start_date = time.strftime('%Y-%m-%d',time.localtime(time.time()-60*60*24*31))
         
         #symbol=request.args['symbol']
         #api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+ticker+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
@@ -54,7 +54,7 @@ def graph():
         #script, div = components(p)
 
         #return render_template('graph.html',script=script, div=div) 
-        return '%s'%(symbol)
+ #       return '%s'%(symbol)
     
 if __name__ == '__main__':
     app.run(port=33507)
