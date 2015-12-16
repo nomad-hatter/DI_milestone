@@ -21,11 +21,13 @@ def index():
           return render_template('index.html')
 
     else:
-        #app.vars['ticker']=request.form['ticker']
         symbol=request.form['ticker']
-        #session['symbol']=request.form['ticker']
-        return redirect(url_for('graph',symbol=symbol)
+        return redirect(url_for('random',symbol=symbol))
 
+    
+@app.route('/<symbol>')
+def random(symbol):
+    return symbol
 
 @app.route('/graph',methods=['GET','POST'])
 def graph(symbol):
