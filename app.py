@@ -32,6 +32,8 @@ def graph():
         
         
         symbol=request.form['ticker']
+        option=request.form['option']
+        
         api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/'+symbol+'.json?start_date=' + start_date + '&end_date=' + crnt_date + '?api_key=tX-ANP6Rh24Q81bFsYH5l'
     
         df = pd.read_json(api_url)
@@ -40,10 +42,19 @@ def graph():
         # set up some data
         x=pd.to_datetime(pd.Series(df[0]))
         x=x.tolist()
-        y = df[1].tolist()
+        y = df[option].tolist()
           
+        if option == 1
+            title=symbol+' Opening Price'
+        elif option == 4
+            title=symbol+' Closing Price'
+        elif option == 8
+            title=symbol+' Adjusted Opening Price'
+        else
+            title=symbol+' Adjusted Closing Price'
+
         # create a new plot with figure
-        p = figure(plot_width=600, plot_height=600, x_axis_type='datetime',title=symbol,x_axis_label='Date', y_axis_label='Price')
+        p = figure(plot_width=500, plot_height=500, x_axis_type='datetime',title=title,x_axis_label='Date', y_axis_label='Price')
 
         p.line(x,y, line_width=2)
 
